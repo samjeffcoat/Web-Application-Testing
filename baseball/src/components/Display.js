@@ -2,6 +2,8 @@ import React, {Component} from "react";
 
 class Display extends Component{
     render(){
+        const { balls, strikes }= this.props;
+        console.log(this.props)
         return(
             <div>
                 <h1>Nationals Park</h1>
