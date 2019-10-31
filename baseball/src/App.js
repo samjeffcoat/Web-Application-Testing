@@ -15,11 +15,23 @@ import './App.css';
       strikes: 0,
     }
    }
+
+   handleBallsChanges= ()=> {
+     const { balls } = this.state; 
+     if (balls <4) {
+       this.setState(prevState => ({
+         balls: prevState.balls +1
+       }))
+     } else if (balls === 4) {
+       this.setState({balls: 0})
+       alert("Four balls, you get a walk to first. Click to reset!")
+     }
+   }
    render(){
   return (
     <div className="App">
       <Display balls= {this.state.balls}  strikes= {this.state.strikes}/>
-      <Dashboard />
+      <Dashboard addBalls = {this.handleBallsChanges} />
  
     </div>
   );
