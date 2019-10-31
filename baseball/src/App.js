@@ -1,5 +1,6 @@
 import React from 'react';
 import Display from './components/Display';
+import Dashboard from './components/Dashboard';
 import './App.css';
 
 //create an isolated function aka a "unit" that is easy to test
@@ -18,6 +19,7 @@ import './App.css';
   return (
     <div className="App">
       <Display balls= {this.state.balls}  strikes= {this.state.strikes}/>
+      <Dashboard />
  
     </div>
   );
