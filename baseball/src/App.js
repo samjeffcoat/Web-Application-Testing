@@ -23,15 +23,27 @@ import './App.css';
          balls: prevState.balls +1
        }))
      } else if (balls === 4) {
-       this.setState({balls: 0})
+       this.setState({balls: 0, strikes: 0})
        alert("Four balls, you get a walk to first. Click to reset!")
      }
    }
+   handleStrikeChanges = ()=> {
+     const {strikes}= this.state;
+     if ( strikes < 3 ){
+       this.setState(prevState => ({
+         strikes: prevState.strikes +1
+       }))
+     } else if (strikes === 3){
+       this.setState({ strikes: 0 , balls: 0})
+       alert("Three strikes, and you are OUTTTTTTTTT!, click to reset!")
+     }
+   }
+
    render(){
   return (
     <div className="App">
       <Display balls= {this.state.balls}  strikes= {this.state.strikes}/>
-      <Dashboard addBalls = {this.handleBallsChanges} />
+      <Dashboard addBalls = {this.handleBallsChanges}  addStrikes= {this.handleStrikeChanges}/>
  
     </div>
   );
